@@ -1,0 +1,34 @@
+<h1>Bienvenido Trabajador <%= usuario %></h1>
+<a href="/logout">Cerrar sesión</a>
+
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const lat = position.coords.latitude;
+          const lon = position.coords.longitude;
+          console.log("🌍 Latitud:", lat, "Longitud:", lon);
+
+          // Si quieres enviar estos datos al servidor:
+          /*
+          fetch("/guardar-ubicacion", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ latitud: lat, longitud: lon })
+          });
+          */
+        },
+        (error) => {
+          console.warn("❌ Error obteniendo ubicación:", error.message);
+        }
+      );
+    } else {
+      console.warn("Geolocalización no es compatible con este navegador.");
+    }
+  });
+</script>

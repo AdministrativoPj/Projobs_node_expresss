@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Recuperar Contraseña</title>
+  <link rel="stylesheet" href="/css/form.css">
+</head>
+<body>
+  <div class="auth-wrapper">
+    <div class="auth-card">
+      
+      <div class="auth-image">
+        <a href="/">
+          <img src="/img/logotipo.png" alt="ProJobs Logo">
+        </a>
+      </div>
+
+      <div class="auth-form">
+        <h2>Recuperar contraseña</h2>
+        <form action="/recuperar" method="POST">
+          <label for="correo">Correo electrónico</label>
+          <input type="email" name="correo" placeholder="ejemplo@correo.com" required />
+          <button type="submit">Enviar enlace</button>
+        </form>
+
+        <% if (mensaje) { %>
+          <p style="color: green;"><%= mensaje %></p>
+        <% } %>
+        <% if (error) { %>
+          <p style="color: red;"><%= error %></p>
+        <% } %>
+
+        <p style="text-align: center; margin-top: 1rem;">
+          <a href="/login">Volver al inicio de sesión</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
